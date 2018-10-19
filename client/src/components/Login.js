@@ -26,6 +26,9 @@ class Login extends React.Component {
         };
         let endpoint = `http://localhost:3300/api/login`;
 
+        if(user.username.length < 3 || user.password.length < 8){
+            window.alert('You must provide a username and a password.');
+        } else {
         axios.post(endpoint, user)
         .then(res => {
             localStorage.setItem('jwt', res.data.token);
@@ -35,6 +38,7 @@ class Login extends React.Component {
         .catch(err => {
             console.log(err);
         })
+    }
     }
     
     render(){

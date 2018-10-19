@@ -34,6 +34,9 @@ async function register(req, res) {
   try{
     // hash the password input
     const creds = req.body;
+    if(!creds || !creds.password || !creds.username){
+      res.status(400).json({error: "User must have a name and a password."})
+    }
     const hash = bcrypt.hashSync(creds.password, 14);
     creds.password = hash;
     // await the return of the new user ID

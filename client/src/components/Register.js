@@ -26,6 +26,9 @@ class Register extends React.Component {
         };
         let endpoint = `http://localhost:3300/api/register`;
 
+        if(user.username.length < 3 || user.password.length < 8){
+            window.alert('Username minimum length: 3. Password minimum length: 8')
+        } else {
         axios.post(endpoint, user)
         .then(res => {
             localStorage.setItem('jwt', res.data.token);
@@ -35,6 +38,7 @@ class Register extends React.Component {
         .catch(err => {
             console.log(err);
         })
+    }
     }
     
     render(){
