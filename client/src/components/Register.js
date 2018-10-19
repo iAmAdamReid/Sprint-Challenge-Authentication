@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import {withRouter} from 'react-router-dom';
+import {withRouter, NavLink} from 'react-router-dom';
 
 class Register extends React.Component {
     constructor(props){
@@ -40,12 +40,13 @@ class Register extends React.Component {
     render(){
         return (
         <div className = 'register-container'>
-        
+        <h1>Create A New Account</h1>
         <form onSubmit = {this.handleRegister}>
         <input type = 'text' name='username' value={this.state.username} onChange={this.handleInput} placeholder='Username'></input>
         <input type = 'password' name = 'password' value={this.state.password} onChange={this.handleInput} placeholder='Password'></input>
         <button type = 'submit'>Register</button>
         </form>
+        <p>Already have an account? <NavLink to = '/login'>Log in here!</NavLink></p>
 
         </div>
         )

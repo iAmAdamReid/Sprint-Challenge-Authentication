@@ -8,7 +8,6 @@ class Logout extends React.Component {
 
     handleLogout(){
         localStorage.removeItem('jwt');
-        console.log(this.props);
         setTimeout(() => {
             this.props.history.replace('/');
         }, 3000)

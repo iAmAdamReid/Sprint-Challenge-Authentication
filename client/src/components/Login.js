@@ -40,14 +40,14 @@ class Login extends React.Component {
     render(){
         return (
         <div className = 'login-container'>
-        
+        <h1>Log In</h1>
         <form onSubmit = {this.handleLogin}>
         <input type = 'text' name='username' value={this.state.username} onChange={this.handleInput} placeholder='Username'></input>
         <input type = 'password' name = 'password' value={this.state.password} onChange={this.handleInput} placeholder='Password'></input>
         <button type = 'submit'>Login</button>
         </form>
 
-        <div>New user? Create an account <NavLink to = '/register'>here!</NavLink></div>
+        <p>New user? Create an account <NavLink to = '/register'>here!</NavLink></p>
 
         </div>
         )

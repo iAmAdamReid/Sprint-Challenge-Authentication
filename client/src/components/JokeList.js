@@ -42,10 +42,10 @@ class JokeList extends React.Component {
                 <div className = 'joke-list-container'>
                 <h1>Check out these groaners!</h1>
                 {this.state.jokes.map(joke => {
-                    return <div key = {joke.id}>
+                    return <div key = {joke.id} className = 'joke-container'>
                     <div>{joke.setup}</div>
                     <div>{joke.punchline}</div>
-                    <br />
+
                     </div>
                 })}
                 
@@ -53,7 +53,7 @@ class JokeList extends React.Component {
             )
         } else {
             return (
-                <div className = 'joke-list-container-no-token'>
+                <div className = 'joke-list-container'>
                     <h1>You gotta be <NavLink to = '/login'>logged in</NavLink> to get these jokes!</h1>
                 </div>
             )
