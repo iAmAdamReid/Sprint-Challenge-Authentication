@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const helmet = require('helmet');
 
 const configureRoutes = require('./config/routes');
 
@@ -12,6 +13,14 @@ const corsOptions = {
 
 server.use(express.json());
 server.use(cors());
+server.use(helmet());
+
+function logger(req, res, next){
+  console.log(`${req.method} to ${req.url}`);
+  next();
+}
+
+server.use(logger);
 
 configureRoutes(server);
 
