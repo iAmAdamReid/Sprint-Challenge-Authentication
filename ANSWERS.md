@@ -16,3 +16,8 @@ By using a cryptographic hashing algorithm to hash passwords, we prevent the pas
 4. What are the three parts of the JSON Web Token?
 
 To create a JWT, we need the payload (the information to be encoded, e.g. username and password), we need a secret key to encrypt the token and ensure the token has not been tampered with, and we need options such as expiration to tell us how long this token will be usable.
+
+Once the token is generated, it will have 3 parts:
+1.The header: tells us the token type and the algorithm used
+2.The payload: the information encoded within the token
+3.The signature: contains the encrypted secret key to ensure token is valid when using `compareSync`
